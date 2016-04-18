@@ -6,33 +6,25 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-ruby 2.2.2
-
-* System dependencies
+  ruby 2.2.2
 
 * Configuration
 
-https://github.com/NathanQj/caveavin
-Quand vous avez clone/installé RoR:
-dans le term, runner:
-bundle install
-rake db:create
-Pour run le serv c'est:
-rails s
-On crée les branches à partir de develop (pas master) et on fait des beaux commits/pull requests
+  https://github.com/NathanQj/caveavin
 
-* Database creation
+  After cloning repo/installing RoR:
+  In your terminal, run:
+  $ bundle install
+  $ rake db:create
 
-* Database initialization
+  To start your rails server, run:
+  $ rails s
+
+  Create branches from Develop (not master), commit with clear comments
+  and push/pull-request your branch once you're done with it.
 
 * How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
 
 * Deployment instructions
 
 * ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
