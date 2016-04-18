@@ -12,6 +12,15 @@ ruby 2.2.2
 
 * Configuration
 
+https://github.com/NathanQj/caveavin
+Quand vous avez clone/installé RoR:
+dans le term, runner:
+bundle install
+rake db:create
+Pour run le serv c'est:
+rails s
+On crée les branches à partir de develop (pas master) et on fait des beaux commits/pull requests
+
 * Database creation
 
 * Database initialization
