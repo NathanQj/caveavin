@@ -15,19 +15,10 @@ ruby 2.2.2
 https://github.com/NathanQj/caveavin
 Quand vous avez clone/installé RoR:
 dans le term, runner:
-
-## Init :
-
-````
 bundle install
 rake db:create
-````
-
-## Run server :
-
-````
+Pour run le serv c'est:
 rails s
-````
 On crée les branches à partir de develop (pas master) et on fait des beaux commits/pull requests
 
 * Database creation
