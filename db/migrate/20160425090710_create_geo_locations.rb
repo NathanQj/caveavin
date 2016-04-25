@@ -1,4 +1,4 @@
-class CreateGeolocations < ActiveRecord::Migration
+class CreateGeoLocations < ActiveRecord::Migration
   def change
     create_table :geo_locations do |t|
       t.belongs_to :product, index: true

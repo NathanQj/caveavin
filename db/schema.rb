@@ -11,10 +11,129 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160417161807) do
+ActiveRecord::Schema.define(version: 20160425143633) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "appellations", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "appellations", ["product_id"], name: "index_appellations_on_product_id", using: :btree
+
+  create_table "areas", force: :cascade do |t|
+    t.integer  "region_id"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "areas", ["region_id"], name: "index_areas_on_region_id", using: :btree
+
+  create_table "communities", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "url"
+    t.integer  "highest_score"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "communities", ["product_id"], name: "index_communities_on_product_id", using: :btree
+
+  create_table "community_reviews", force: :cascade do |t|
+    t.integer  "community_id"
+    t.string   "name"
+    t.string   "url"
+    t.text     "description"
+    t.integer  "score"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "community_reviews", ["community_id"], name: "index_community_reviews_on_community_id", using: :btree
+
+  create_table "geo_locations", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "url"
+    t.integer  "latitude"
+    t.integer  "longitude"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "geo_locations", ["product_id"], name: "index_geo_locations_on_product_id", using: :btree
+
+  create_table "labels", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "labels", ["product_id"], name: "index_labels_on_product_id", using: :btree
+
+  create_table "product_attributes", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "product_attributes", ["product_id"], name: "index_product_attributes_on_product_id", using: :btree
+
+  create_table "products", force: :cascade do |t|
+    t.string   "name"
+    t.string   "type"
+    t.string   "year"
+    t.string   "url"
+    t.text     "description"
+    t.integer  "price_min"
+    t.integer  "price_max"
+    t.integer  "price_retail"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.string   "url"
+    t.integer  "score"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ratings", ["product_id"], name: "index_ratings_on_product_id", using: :btree
+
+  create_table "regions", force: :cascade do |t|
+    t.integer  "appellation_id"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  add_index "regions", ["appellation_id"], name: "index_regions_on_appellation_id", using: :btree
+
+  create_table "retails", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "sku"
+    t.string   "url"
+    t.boolean  "in_stock"
+    t.integer  "price"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "retails", ["product_id"], name: "index_retails_on_product_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false
@@ -33,5 +152,45 @@ ActiveRecord::Schema.define(version: 20160417161807) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "varietals", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "varietals", ["product_id"], name: "index_varietals_on_product_id", using: :btree
+
+  create_table "vineyards", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "vineyards", ["product_id"], name: "index_vineyards_on_product_id", using: :btree
+
+  create_table "vintages", force: :cascade do |t|
+    t.integer  "product_id"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "vintages", ["product_id"], name: "index_vintages_on_product_id", using: :btree
+
+  create_table "wine_types", force: :cascade do |t|
+    t.integer  "varietal_id"
+    t.string   "name"
+    t.string   "url"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "wine_types", ["varietal_id"], name: "index_wine_types_on_varietal_id", using: :btree
 
 end
