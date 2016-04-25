@@ -1,6 +1,6 @@
 class CreateGeolocations < ActiveRecord::Migration
   def change
-    create_table :geolocations do |t|
+    create_table :geo_locations do |t|
       t.belongs_to :product, index: true
 
       t.string :url
