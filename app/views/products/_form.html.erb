@@ -1,0 +1,22 @@
+<%= f.input :name, label: "Nom" %>
+
+<%= f.input :year, label: "Année" %>
+
+<%= f.input :description, label: "Description" %>
+
+<%= f.simple_fields_for :user_product do |up| %>
+  <%= up.input :stock, label: "Votre stock", required: false %>
+<% end %>
+
+<p>Vous connaissez ces informations ?</p>
+
+<%= f.input :price_min, label: "Prix minimum" %>
+
+<%= f.input :price_max, label: "Prix maximum" %>
+
+<p>Ajouter une dégustation ? (optionnel)</p>
+<%= f.simple_fields_for :degustation do |degust| %>
+  <%= degust.input :description, label: "Description", required: false %>
+<% end %>
+
+<%= f.submit "Sauvegarder", class: "waves-effect waves-light btn-large", style:"width:100%" %>

@@ -1,0 +1,11 @@
+<h1><%= @product.name %></h1>
+
+
+
+<% if @degustations.nil? %>
+  Il n'y a pas encore de dégustation pour ce produit
+  <%= link_to "Ajouter une dégustation", new_degustation_path, class: "btn btn-primary" %>
+<% else %>
+  <% @degustations.each do |degustation| %>
+  <p><%= @degustation.description %></p>
+<% end %>
