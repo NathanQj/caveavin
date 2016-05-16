@@ -13,11 +13,17 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'bower-rails', '~> 0.10.0'
 gem 'materialize-sass'
+gem 'font-awesome-sass', '~> 4.6.2'
+
 
 # AUTHENTIFICATION
 gem 'devise'
 gem 'omniauth', '>= 1.0.0'
 gem 'devise_token_auth'
+gem "pundit"
+
+# VIEWS
+gem 'simple_form'
 
 # DEBUG
 group :development do
