@@ -1,6 +1,9 @@
 class ProductsController < ApplicationController
   before_action :set_product, only: [:show]
 
+  def index
+    @user_products = current_user.user_products
+  end
 
   def show
 

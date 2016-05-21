@@ -8,7 +8,6 @@ class AdminController < ApplicationController
       sign_out current_user
 
       redirect_to root_path
-
       return false
     end
   end

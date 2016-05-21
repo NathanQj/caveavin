@@ -1,20 +1,20 @@
-<%= f.input :name, label: "Nom" %>
+<%= f.input :name, label: "Nom", class: 'product-name-select' %>
 
-<%= f.input :year, label: "Année" %>
+<%= f.input :year, label: "Année", as: :integer, input_html: { min: '0', step: '1' } %>
 
 <%= f.input :description, label: "Description" %>
 
 <%= f.simple_fields_for :user_product do |up| %>
-  <%= up.input :stock, label: "Votre stock", required: false %>
+  <%= up.input :stock, label: "Votre stock", required: false, as: :integer, input_html: { min: '0', step: '1' } %>
 <% end %>
 
-<p>Vous connaissez ces informations ?</p>
+<p>Informations complémentaires</p>
 
 <%= f.input :price_min, label: "Prix minimum" %>
 
 <%= f.input :price_max, label: "Prix maximum" %>
 
-<p>Ajouter une dégustation ? (optionnel)</p>
+<p>Ajouter un avis (optionnel)</p>
 <%= f.simple_fields_for :degustation do |degust| %>
   <%= degust.input :description, label: "Description", required: false %>
 <% end %>

@@ -1,0 +1,57 @@
+<div id="menu_connected">
+  <% if user_signed_in? %>
+    <ul id="resource-dropdown" class="dropdown-content">
+      <%= render 'layouts/resources_links' %>
+    </ul>
+    <ul id="side-nav-resource-dropdown" class="dropdown-content">
+      <%= render 'layouts/resources_links' %>
+    </ul>
+    <ul id="user-dropdown" class="dropdown-content">
+      <%= render 'layouts/user_links' %>
+    </ul>
+    <ul id="side-nav-user-dropdown" class="dropdown-content">
+      <%= render 'layouts/user_links' %>
+    </ul>
+
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <!-- menu desktop -->
+          <%= link_to "Caveavin", authenticated_root_path %>
+          <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <%= render "layouts/links" %>
+            <li>
+              <a class="dropdown-button" href="#!" data-activates="user-dropdown">
+                <i class="material-icons right">arrow_drop_down</i>
+                <%= current_user.email %>
+              </a>
+            </li>
+          </ul>
+          <!-- menu mobile -->
+          <ul class="side-nav" id="mobile-nav">
+            <li><a class="dropdown-button menu-user" href="#!" data-activates="side-nav-user-dropdown"><%= current_user.email %><i class="material-icons right">arrow_drop_down</i></a></li>
+            <%= render "layouts/links" %>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  <% else %>
+    <div class="navbar-fixed">
+      <nav>
+        <div class="nav-wrapper">
+          <%= link_to "Caveavin", authenticated_root_path, class: "brand-logo" %>
+          <a href="#" data-activates="mobile-nav" class="button-collapse"><i class="material-icons">menu</i></a>
+          <ul class="right hide-on-med-and-down">
+            <li><%= link_to "Inscription", new_user_registration_path %></li>
+            <li><%= link_to "Connexion", new_user_session_path %></li>
+          </ul>
+          <ul class="side-nav" id="mobile-nav">
+            <li><%= link_to "Connexion", new_user_session_path %></li>
+            <li><%= link_to "Inscription", new_user_registration_path %></li>
+          </ul>
+        </div>
+      </nav>
+    </div>
+  <% end %>
+</div>

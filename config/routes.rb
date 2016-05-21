@@ -1,10 +1,21 @@
 Rails.application.routes.draw do
-  root 'welcome#index'
+  devise_scope :user do
+    authenticated :user do
+      root 'products#index', as: :authenticated_root
+    end
+
+    unauthenticated do
+      root 'devise/sessions#new', as: :root
+    end
+  end
 
   #######################################
   #               STATIC                #
   #######################################
-  get 'welcome/index'
+  get "/contact" => "showcases#contact"
+  get "/about" => "showcases#about"
+  get "/faq" => "showcases#faq"
+
 
   #######################################
   #               DEVISE                #
@@ -16,6 +27,7 @@ Rails.application.routes.draw do
   #######################################
   resources :products, only: [:index, :show, :new, :create]
 
+  resources :degustations, only: [:index, :show, :new, :create]
 
   namespace :admin do
 #     # Directs /admin/products/* to Admin::ProductsController

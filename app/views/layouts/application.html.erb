@@ -8,9 +8,16 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
+  <%= render "layouts/menu" %>
+  <div id="notification">
+  	<% if notice %>
+  	  <span><i class="material-icons left">info_outline</i><%= notice %></span>
+  	<% elsif alert %>
+  	  <span><i class="material-icons left">info_outline</i><%= alert %></span>
+  	<% end %>
+  </div>
+
   <main>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </main>
 </body>
