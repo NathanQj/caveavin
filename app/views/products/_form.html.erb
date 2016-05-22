@@ -2,7 +2,7 @@
 
 <%= f.input :year, label: "Année", as: :integer, input_html: { min: '0', step: '1' } %>
 
-<%= f.input :description, label: "Description" %>
+<%= f.input :description, label: "Description du produit", placeholder: "Vin rouge, sud de la France" %>
 
 <%= f.simple_fields_for :user_product do |up| %>
   <%= up.input :stock, label: "Votre stock", required: false, as: :integer, input_html: { min: '0', step: '1' } %>
@@ -16,6 +16,7 @@
 
 <p>Ajouter un avis (optionnel)</p>
 <%= f.simple_fields_for :degustation do |degust| %>
+  <%= degust.input :rating, label: "Note", required: false, class: "rating-input", input_html: { type: "range", max: 5, min: '0', step: '1' }  %>
   <%= degust.input :description, label: "Description", required: false %>
 <% end %>
 

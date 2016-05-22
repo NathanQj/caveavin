@@ -1,0 +1,13 @@
+<div class="small-section valign-wrapper">
+	<div class="container valign center">
+		<p>Ajoutez une dégustation</p>
+	</div>
+</div>
+
+<div class="section">
+	<div class="container">
+		<%= simple_form_for(@degustation, url: degustations_path) do |f| %>
+		  <%= render "form", f: f %>
+		<% end %>
+	</div>
+</div>

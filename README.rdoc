@@ -9,13 +9,13 @@ Things you may want to cover:
   ruby 2.2.2
 
 * Configuration
-
   https://github.com/NathanQj/caveavin
 
   After cloning repo/installing RoR:
   In your terminal, run:
   $ bundle install
-  $ rake db:create
+  $ rake bower:install
+  $ rake db:create db:migrate db:seed
 
   To start your rails server, run:
   $ rails s
@@ -23,8 +23,9 @@ Things you may want to cover:
   Create branches from Develop (not master), commit with clear comments
   and push/pull-request your branch once you're done with it.
 
-* How to run the test suite
+* JS instructions
+  create a file with the same path as his view path (i.e: views/degustations/_form.html.erb -> assets/javascripts/degustations/_form.js)
+  require this file in assets/javascripts/application.js (i.e: //= require degustations/_form)
 
-* Deployment instructions
-
-* ...
+* SCSS instructions
+  create a file with the same path as his view path (i.e: views/degustations/_form.html.erb -> assets/stylesheets/degustations/_form.scss)

@@ -1,0 +1,11 @@
+<%= f.input :product_id, collection: Product.all, class: "form-control product-name-select", as: :select %>
+
+<%= f.input :stock, label: "Votre stock", required: false, as: :integer, input_html: { min: '0', step: '1' } %>
+
+<p>Ajouter un avis (optionnel)</p>
+<%= f.simple_fields_for :degustation do |degust| %>
+  <%= degust.input :rating, label: "Note", required: false, class: "rating-input", input_html: { type: "range", max: 5, min: '0', step: '1' }  %>
+  <%= degust.input :description, label: "Description", required: false %>
+<% end %>
+
+<%= f.submit "Sauvegarder", class: "waves-effect waves-light btn-large", style:"width:100%" %>

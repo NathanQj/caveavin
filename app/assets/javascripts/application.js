@@ -12,3 +12,9 @@
 //
 //= require jquery
 //= require materialize-sprockets
+//= require nouislider
+
+//= require init
+//= require degustations/_form
+//= require user_products/_form
+//= require products/_form

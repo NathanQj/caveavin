@@ -1,0 +1,5 @@
+<div class="container">
+  <%= simple_form_for(@degustation, url: degustation_path(@degustation), method: :put) do |f| %>
+    <%= render "form", f: f %>
+  <% end %>
+</div>

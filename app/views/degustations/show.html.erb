@@ -1,0 +1,5 @@
+<h1><%= @degustation.product.name %></h1>
+
+<% if @degustation.user == current_user %>
+  <%= link_to "Editer votre dégustation", edit_degustation_path(@degustation), class: "btn btn-primary" %>
+<% end %>

@@ -14,6 +14,7 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'bower-rails', '~> 0.10.0'
 gem 'materialize-sass'
 gem 'font-awesome-sass', '~> 4.6.2'
+gem 'nouislider-rails'
 
 
 # AUTHENTIFICATION

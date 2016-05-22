@@ -27,7 +27,9 @@ Rails.application.routes.draw do
   #######################################
   resources :products, only: [:index, :show, :new, :create]
 
-  resources :degustations, only: [:index, :show, :new, :create]
+  resources :user_products, only: [:index, :show, :new, :create]
+
+  resources :degustations, only: [:index, :show, :new, :create, :edit, :update]
 
   namespace :admin do
 #     # Directs /admin/products/* to Admin::ProductsController

@@ -2,18 +2,15 @@ class ProductsController < ApplicationController
   before_action :set_product, only: [:show]
 
   def index
-    @user_products = current_user.user_products
+    @products = Product.all
   end
 
   def show
-
+    @degustations = @product.degustations
   end
 
   def new
     @product = Product.new
-    if @product.degustations.present?
-      @degustations = @product.degustations
-    end
     authorize @product
   end
 
@@ -67,6 +64,7 @@ class ProductsController < ApplicationController
     def degustation_params
       params.require(:product)
             .require(:degustation)
-            .permit(:description)
+            .permit(:description,
+                    :rating)
     end
 end

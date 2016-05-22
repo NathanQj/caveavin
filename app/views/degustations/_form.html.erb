@@ -1,0 +1,7 @@
+<%= f.input :product_id, collection: Product.all, class: "form-control product-name-select", as: :select %>
+
+<%= f.input :rating, label: "Note", required: false %>
+
+<%= f.input :description, label: "Description", required: false %>
+
+<%= f.submit "Sauvegarder", class: "waves-effect waves-light btn-large", style:"width:100%" %>
